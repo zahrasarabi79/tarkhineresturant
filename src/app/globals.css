@@ -1,0 +1,7 @@
+@import "../../public/Fonts/Estedad.css";
+body {
+  font-family: "Estedad", sans-serif;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
