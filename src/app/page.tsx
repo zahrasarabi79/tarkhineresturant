@@ -1,6 +1,9 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Slider from "./Components/Slider/Slider";
 
 export default function Home() {
-  return <p>hhhhh</p>;
+  return (
+    <>
+      <Slider sliderTitle="تجربه غذای سالم و گیاهی به سبک هومسا" sliderBtnTitle="سفارش آنلاین غذا" />
+    </>
+  );
 }

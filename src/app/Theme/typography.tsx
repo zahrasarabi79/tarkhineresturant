@@ -1,11 +1,11 @@
 import { TypographyOptions } from "@mui/material/styles/createTypography";
 
 const typography: TypographyOptions = {
-  fontFamily: "vazirmatn, sans-serif",
+  fontFamily: "Estedad, sans-serif",
   h1: {
-    fontSize: "96px",
-    fontWeight: 400,
-    lineHeight: "155px",
+    fontSize: "44px",
+    fontWeight: 700,
+    lineHeight: "62px",
     letterSpacing: "0em",
     textAlign: "left",
     "@media (max-width:600px)": {
@@ -13,14 +13,11 @@ const typography: TypographyOptions = {
     },
   },
   h2: {
-    fontSize: "60px",
-    fontWeight: 400,
-    lineHeight: "97px",
+    fontSize: "40px",
+    fontWeight: 700,
+    lineHeight: "56px",
     letterSpacing: "0em",
     textAlign: "left",
-    "@media (max-width:600px)": {
-      fontSize: "56px",
-    },
   },
   h3: {
     fontSize: "48px",
@@ -53,19 +50,16 @@ const typography: TypographyOptions = {
     },
   },
   h6: {
-    fontSize: "20px",
-    fontWeight: 400,
-    lineHeight: "32px",
+    fontSize: "16px",
+    fontWeight: 700,
+    lineHeight: "22px",
     letterSpacing: "0em",
     textAlign: "left",
-    "@media (max-width:600px)": {
-      fontSize: "18px",
-    },
   },
   body1: {
-    fontSize: "16px",
+    fontSize: "20px",
     fontWeight: 400,
-    lineHeight: "26px",
+    lineHeight: "36px",
     letterSpacing: "0em",
     textAlign: "left",
   },

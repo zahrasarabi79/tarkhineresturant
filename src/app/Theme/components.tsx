@@ -68,17 +68,25 @@ const components: Components = {
       root: {
         boxShadow: "none",
       },
-      sizeLarge: {
-        fontSize: "15px",
-        fontWeight: 700,
-        lineHeight: "24px",
+      sizeMedium: {
+        fontSize: "16px",
+        fontWeight: 500,
+        lineHeight: "28px",
         letterSpacing: "0em",
-        textAlign: "left",
-        "@media (max-width:600px)": {
-          fontSize: "13px",
+        padding: "8px 16px",
+        textAlign: "center",
+        borderRadius: "8px",
+        color: "white",
+        "@media (max-width:900px)": {
+          fontSize: "10px",
+          fontWeight: 400,
+          lineHeight: "18px",
+          letterSpacing: "0em",
+          padding: "8px",
+          borderRadius: "4px",
         },
       },
-      sizeMedium: {
+      sizeLarge: {
         fontSize: "14px",
         fontWeight: 400,
         lineHeight: "23px",
@@ -89,7 +97,9 @@ const components: Components = {
         },
       },
       sizeSmall: {
-        fontSize: "13px",
+        borderRadius: "4px",
+        padding: "8px",
+        fontSize: "10px",
         fontWeight: 400,
         lineHeight: "21px",
         letterSpacing: "0em",
@@ -158,56 +168,57 @@ const components: Components = {
       },
     },
   },
-  MuiTableHead: {
-    styleOverrides: {
-      root: {
-        fontSize: "14px",
-        fontWeight: 700,
-        lineHeight: "23px",
-        letterSpacing: "0em",
-        textAlign: "left",
-        backgroundColor: "rgba(255, 255, 255, 0.10)",
-        "@media (max-width:600px)": {
-          fontSize: "12px",
-        },
-      },
-    },
-  },
-  MuiMenuItem: {
-    styleOverrides: {
-      root: {
-        fontSize: "16px",
-        fontWeight: 400,
-        lineHeight: "26px",
-        letterSpacing: "0em",
-        textAlign: "left",
-      },
-      dense: {
-        fontSize: "14px",
-        fontWeight: 400,
-        lineHeight: "23px",
-        letterSpacing: "0em",
-        textAlign: "left",
-        "@media (max-width:600px)": {
-          fontSize: "12px",
-        },
-      },
-    },
-  },
-  MuiListSubheader: {
-    styleOverrides: {
-      root: {
-        fontSize: "14px",
-        fontWeight: 400,
-        lineHeight: "23px",
-        letterSpacing: "0em",
-        textAlign: "left",
-        "@media (max-width:600px)": {
-          fontSize: "13px",
-        },
-      },
-    },
-  },
+  // MuiTableHead: {
+  //   styleOverrides: {
+  //     root: {
+  //       fontSize: "14px",
+  //       fontWeight: 700,
+  //       lineHeight: "23px",
+  //       letterSpacing: "0em",
+  //       textAlign: "left",
+  //       backgroundColor: "rgba(255, 255, 255, 0.10)",
+  //       "@media (max-width:600px)": {
+  //         fontSize: "12px",
+  //       },
+  //     },
+  //   },
+  // },
+  // MuiMenuItem: {
+  //   styleOverrides: {
+  //     root: {
+  //       fontSize: "16px",
+  //       fontWeight: 400,
+  //       lineHeight: "26px",
+  //       letterSpacing: "0em",
+  //       textAlign: "left",
+  //     },
+  //     dense: {
+  //       fontSize: "14px",
+  //       fontWeight: 400,
+  //       lineHeight: "23px",
+  //       letterSpacing: "0em",
+  //       textAlign: "left",
+  //       "@media (max-width:600px)": {
+  //         fontSize: "12px",
+  //       },
+  //     },
+  //   },
+  // },
+
+  // MuiListSubheader: {
+  //   styleOverrides: {
+  //     root: {
+  //       fontSize: "14px",
+  //       fontWeight: 400,
+  //       lineHeight: "23px",
+  //       letterSpacing: "0em",
+  //       textAlign: "left",
+  //       "@media (max-width:600px)": {
+  //         fontSize: "13px",
+  //       },
+  //     },
+  //   },
+  // },
   MuiBottomNavigationAction: {
     styleOverrides: {
       label: {
@@ -247,13 +258,6 @@ const components: Components = {
 
   // ... other components ...
 
-  MuiListItemText: {
-    styleOverrides: {
-      primary: {
-        fontSize: "14px",
-      },
-    },
-  },
   MuiCardHeader: {
     styleOverrides: {
       action: {
