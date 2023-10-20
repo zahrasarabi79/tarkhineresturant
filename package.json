@@ -24,6 +24,7 @@
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
+    "@types/styled-components": "^5.1.29",
     "@types/stylis": "^4.2.1",
     "eslint": "latest",
     "eslint-config-next": "latest",

@@ -2,7 +2,7 @@ import typography from "@/app/Theme/typography";
 import { Box, List, ListItem, Typography, useMediaQuery, useTheme } from "@mui/material";
 import Image from "next/image";
 import React from "react";
-import Icon from "../Icon/Icon";
+import Icon from "../CustomIcon/Icon";
 export interface INavListItems {
   item: string;
   route: string;

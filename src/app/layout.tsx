@@ -1,8 +1,9 @@
 import Theme from "@/app/Theme/theme";
 import NavBar from "./Components/Navbar/NavBar";
 import "./globals.css";
+
 import type { Metadata } from "next";
-import { CssBaseline } from "@mui/material";
+import StyledComponentsRegistry from "./registry";
 
 export const metadata: Metadata = {
   title: "Tarkhineh",
@@ -13,8 +14,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" dir="rtl">
       <Theme>
         <body>
-          <NavBar />
-          {children}
+          {/* StyledComponentsRegistry for get style component and save in serverside(help to increse speed of firstload of site) */}
+          <StyledComponentsRegistry>
+            <NavBar />
+            {children}
+          </StyledComponentsRegistry>
         </body>
       </Theme>
     </html>
