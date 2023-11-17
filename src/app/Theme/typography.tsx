@@ -30,9 +30,9 @@ const typography: TypographyOptions = {
     },
   },
   h4: {
-    fontSize: "34px",
-    fontWeight: 400,
-    lineHeight: "55px",
+    fontSize: "24px",
+    fontWeight: 700,
+    lineHeight: "33.6px",
     letterSpacing: "0em",
     textAlign: "left",
     "@media (max-width:600px)": {

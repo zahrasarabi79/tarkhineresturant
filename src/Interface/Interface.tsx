@@ -17,3 +17,7 @@ export interface IChangeImageAction {
   type: ActionType;
   payload?: number;
 }
+export interface IChengeSliderAction {
+  type: string;
+  payload: string;
+}

@@ -1,11 +1,10 @@
 "use client";
 import { Box, useMediaQuery, useTheme, Typography, Button, styled, IconButton, Fade, Grow, keyframes } from "@mui/material";
 import Image from "next/image";
-import React, { ReducerState, ReducerWithoutAction, useEffect, useReducer, useRef, useState } from "react";
+import React, { useEffect, useReducer } from "react";
 import { IChangeImageAction, ISliderComponentProps } from "@/Interface/Interface";
 import { ArrowIcon } from "@/app/style/StyleComponents/StyleComponents";
 import Icon from "../CustomIcon/Icon";
-import { clearTimeout } from "timers";
 const imageSlider = [
   { url: "/Images/Slider/jonathan-pielmayer-RKJElwIyCQw-unsplash.jpg", title: "food1" },
   { url: "/Images/Slider/annie-spratt-R3LcfTvcGWY-unsplash.jpg", title: "food1" },
@@ -14,10 +13,7 @@ const imageSlider = [
   { url: "/Images/Slider/kimzy-nanney-LNDgBERq8Q0-unsplash.jpg", title: "food1" },
 ];
 const SliderTitle = ["تجربه غذای سالم و گیاهی به سبک هومسا", "لذت غذای سالم و گیاهی را با هومسا تجربه کنید!", "لذت غذای سالم را با هومسا تجربه کنید!", "xgjjkkj", "khkhkhj"];
-export interface IChengeSliderAction {
-  type: string;
-  payload: string;
-}
+
 const Slider: React.FC<ISliderComponentProps> = ({ sliderTitle, sliderBtnTitle }) => {
   const FadeIn = keyframes`
     0% {
@@ -32,8 +28,6 @@ const Slider: React.FC<ISliderComponentProps> = ({ sliderTitle, sliderBtnTitle }
   const isUpMediumScreen = useMediaQuery(theme.breakpoints.up("md"));
   const initialValue = 0;
   const changeSlider = (state: number, { type, payload = 0 }: IChangeImageAction) => {
-    console.log(state);
-
     switch (type) {
       case "PREVIOUS_IMAGE":
         const isFirstSliderImage: boolean = state === 0;

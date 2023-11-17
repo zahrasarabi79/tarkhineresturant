@@ -24,6 +24,11 @@ const components: Components = {
       root: { display: "flex", justifyContent: "space-between", alignItems: "center" },
     },
   },
+  MuiTextField: {
+    styleOverrides: {
+      root: { padding: "8px 16px" },
+    },
+  },
   // MuiAlertTitle: {
   //   styleOverrides: {
   //     root: {

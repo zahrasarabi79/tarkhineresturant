@@ -1,4 +1,5 @@
 import Slider from "./Components/Slider/Slider";
+import FoodMenu from "./Components/pages/FoodMenu/Foodmenu";
 
 export default function Home() {
   const SliderTitle = [
@@ -12,6 +13,7 @@ export default function Home() {
   return (
     <>
       <Slider sliderTitle={SliderTitle} sliderBtnTitle="سفارش آنلاین غذا" />
+      <FoodMenu />
     </>
   );
 }
