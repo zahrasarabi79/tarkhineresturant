@@ -1,6 +1,7 @@
 import Slider from "./Components/Slider/Slider";
 import FoodMenu from "./Components/pages/FoodMenu/Foodmenu";
 import AboutSection from "./Components/pages/about-section/AboutSection";
+import BranchesSection from "./Components/pages/ٰbranches-section/BranchesSection";
 
 export default function Home() {
   const SliderTitle = [
@@ -16,6 +17,7 @@ export default function Home() {
       <Slider sliderTitle={SliderTitle} sliderBtnTitle="سفارش آنلاین غذا" />
       <FoodMenu />
       <AboutSection />
+      <BranchesSection />
     </>
   );
 }
