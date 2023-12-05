@@ -1,39 +1,51 @@
 "use client";
-import { Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Container, Grid, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
 import Image from "next/image";
 import React, { FC } from "react";
 import { IBranches } from "./BranchesSection";
+import typography from "../../../Theme/typography";
 export interface IBranchCard {
   branch: IBranches;
 }
 const BranchCard: FC<IBranchCard> = ({ branch }) => {
   const theme = useTheme();
   const isDownLargeScreen = useMediaQuery(theme.breakpoints.down("lg"));
+  const isDownsmartScreen = useMediaQuery(theme.breakpoints.down("sm"));
   return (
-    <Stack
-      direction={isDownLargeScreen ? "row" : "column"}
+    <Grid
+      direction={"row"}
+      container
       sx={{
-        position: "relative",
-        width: isDownLargeScreen ? "fix" : "288px",
-        height: isDownLargeScreen ? "100%" : "auto",
+        height: isDownsmartScreen ? "80px" : isDownLargeScreen ? "100px" : "auto",
         border: "1px solid #CBCBCB",
         borderRadius: 1,
         overflow: "hidden",
-        gap: 1,
       }}
     >
-      <Stack sx={{ position: "relative", width: isDownLargeScreen ? "144px" : "288px", height: isDownLargeScreen ? "fix" : "230px" }}>
-        <Image alt="image1" src={isDownLargeScreen ? branch.mobileImage : branch.desktopImage} fill style={{ position: "absolute" }} />
-      </Stack>
-      <Stack>
-        <Typography variant="h7" color="initial">
-          {branch.branchName}
-        </Typography>
-        <Typography variant="captionLG" color="initial" sx={{ textAlign: "center", mb: 2, p: 1 }}>
-          {branch.address}
-        </Typography>
-      </Stack>
-    </Stack>
+      <Grid
+        item
+        xs={isDownsmartScreen ? 5 : isDownLargeScreen ? 4 : 12}
+        sx={{ position: "relative", height: isDownLargeScreen ? "100%" : "230px", width: isDownLargeScreen ? "230px" : "auto", flexGrow: 1 }}
+      >
+        <Image fill alt={branch.branchName} src={isDownLargeScreen ? branch.mobileImage : branch.desktopImage} style={{ position: "absolute" }} />
+      </Grid>
+      <Grid
+        item
+        sx={{ p: !isDownLargeScreen ? "8px 8px 16px 8px" : "4px 8px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}
+        xs={isDownsmartScreen ? 7 : isDownLargeScreen ? 8 : 12}
+      >
+        <Stack>
+          <Typography sx={{ textAlign: "center", mb: isDownLargeScreen ? 0 : 1 }} variant={isDownsmartScreen ? "buttonSM" : "h7"} color="initial">
+            {branch.branchName}
+          </Typography>
+        </Stack>
+        <Stack>
+          <Typography sx={{ textAlign: "center" }} variant={isDownsmartScreen ? "caption" : "captionLG"} color="initial">
+            {branch.address}
+          </Typography>
+        </Stack>
+      </Grid>
+    </Grid>
   );
 };
 

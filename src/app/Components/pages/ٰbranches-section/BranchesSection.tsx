@@ -1,5 +1,5 @@
 "use client";
-import { Box, Grid, useTheme, Typography, useMediaQuery, Stack } from "@mui/material";
+import { Box, Grid, useTheme, Typography, useMediaQuery, Stack, Container } from "@mui/material";
 import React from "react";
 import BranchCard from "./BranchCard";
 export interface IBranches {
@@ -19,7 +19,7 @@ const branches: IBranches[] = [
   {
     desktopImage: "/Images/branches/desktop-branches/aghdasieh-branch.jpg",
     mobileImage: "/Images/branches/mobile-branches/ekbatan-branch-mobile.gif",
-    address: "خیابان اقدسیه ، نرسیده به میدان خیام، پلاک ۸",
+    address: "خیابان اقدسیه ، نرسیده به میدان خیام،خیابان ۲۳ام،پلاک ۸",
     branchName: "شعبه اقدسیه",
   },
   {
@@ -39,7 +39,7 @@ const BranchesSection = () => {
   const theme = useTheme();
   const isDownLargeScreen = useMediaQuery(theme.breakpoints.down("lg"));
   return (
-    <>
+    <Container maxWidth={isDownLargeScreen ? "md" : "lg"}>
       <Box sx={{ py: 6 }}>
         <Typography variant={isDownLargeScreen ? "h5" : "h4"} sx={{ textAlign: "center", mb: 3 }}>
           ترخینه گردی
@@ -50,7 +50,7 @@ const BranchesSection = () => {
           ))}
         </Stack>
       </Box>
-    </>
+    </Container>
   );
 };
 
