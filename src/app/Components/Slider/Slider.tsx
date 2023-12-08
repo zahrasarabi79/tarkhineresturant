@@ -4,15 +4,19 @@ import Image from "next/image";
 import React, { useEffect, useReducer } from "react";
 import { IChangeImageAction, ISliderComponentProps } from "@/Interface/Interface";
 import { ArrowIcon } from "@/app/style/StyleComponents/StyleComponents";
-import Icon from "../CustomIcon/Icon";
-const imageSlider = [
-  { url: "/Images/Slider/jonathan-pielmayer-RKJElwIyCQw-unsplash.jpg", title: "food1" },
-  { url: "/Images/Slider/annie-spratt-R3LcfTvcGWY-unsplash.jpg", title: "food1" },
-  { url: "/Images/Slider/eric-mcnew-WWtubRjKXK8-unsplash.jpg", title: "food1" },
-  { url: "/Images/Slider/joseph-gonzalez-rp3c2RMcwgw-unsplash.jpg", title: "food1" },
-  { url: "/Images/Slider/kimzy-nanney-LNDgBERq8Q0-unsplash.jpg", title: "food1" },
+import Icon from "../shared/CustomIcon/Icon";
+export interface IImageSlider {
+  url: string;
+  title: string;
+}
+
+export const imageSlider: IImageSlider[] = [
+  { url: "/Images/Slider/jonathan-pielmayer-RKJElwIyCQw-unsplash.jpg", title: "تجربه غذای سالم و گیاهی به سبک هومسا" },
+  { url: "/Images/Slider/annie-spratt-R3LcfTvcGWY-unsplash.jpg", title: "لذت غذای سالم و گیاهی را با هومسا تجربه کنید!" },
+  { url: "/Images/Slider/eric-mcnew-WWtubRjKXK8-unsplash.jpg", title: "لذت٬ شور و نشاط همگی در هومسا" },
+  { url: "/Images/Slider/joseph-gonzalez-rp3c2RMcwgw-unsplash.jpg", title: "تجربه حس تازگی و طراوت در هومسا" },
+  { url: "/Images/Slider/kimzy-nanney-LNDgBERq8Q0-unsplash.jpg", title: "باهومسا کیفیت را احساس کنید" },
 ];
-const SliderTitle = ["تجربه غذای سالم و گیاهی به سبک هومسا", "لذت غذای سالم و گیاهی را با هومسا تجربه کنید!", "لذت غذای سالم را با هومسا تجربه کنید!", "xgjjkkj", "khkhkhj"];
 
 const Slider: React.FC<ISliderComponentProps> = ({ sliderTitle, sliderBtnTitle }) => {
   const FadeIn = keyframes`
@@ -25,7 +29,8 @@ const Slider: React.FC<ISliderComponentProps> = ({ sliderTitle, sliderBtnTitle }
   `;
 
   const theme = useTheme();
-  const isUpMediumScreen = useMediaQuery(theme.breakpoints.up("md"));
+  const isDownSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const isDownLargeScreen = useMediaQuery(theme.breakpoints.down("lg"));
   const initialValue = 0;
   const changeSlider = (state: number, { type, payload = 0 }: IChangeImageAction) => {
     switch (type) {
@@ -62,18 +67,18 @@ const Slider: React.FC<ISliderComponentProps> = ({ sliderTitle, sliderBtnTitle }
   return (
     <Box sx={{ position: "relative" }}>
       {/* Slider Images */}
-      <Box sx={{ overflow: "hidden", height: isUpMediumScreen ? "336px" : "176px" }}>
+      <Box sx={{ overflow: "hidden", height: !isDownSmallScreen ? "336px" : "176px" }}>
         <Box
           sx={{
             display: "flex",
-            height: isUpMediumScreen ? "336px" : "176px",
+            height: !isDownSmallScreen ? "336px" : "176px",
             transition: "transform 0.3s ease",
             // animation: `${FadeIn} 3s ease-in-out`,
             width: `${100 * imageSlider.length}%`,
             transform: `translateX(-${currentIndex * (100 / imageSlider.length)}%)`, // Slide images horizontally
           }}
         >
-          {imageSlider.map((image, imageIndex) => (
+          {imageSlider.map((image: IImageSlider, imageIndex: number) => (
             <Image
               key={imageIndex}
               src={imageSlider[imageIndex].url}
@@ -83,7 +88,7 @@ const Slider: React.FC<ISliderComponentProps> = ({ sliderTitle, sliderBtnTitle }
               style={{
                 objectFit: "cover",
                 width: "100%", // Calculate the width of each image
-                height: isUpMediumScreen ? "336px" : "176px",
+                height: !isDownSmallScreen ? "336px" : "176px",
               }}
               alt="Restursnt-Slider"
               blurDataURL="URL"
@@ -95,18 +100,18 @@ const Slider: React.FC<ISliderComponentProps> = ({ sliderTitle, sliderBtnTitle }
 
       {/* </Grow> */}
       {/* Slider Black Cover */}
-      <Box sx={{ bgcolor: "black", opacity: "50%", width: "100%", height: isUpMediumScreen ? "336px" : "176px", position: "absolute", zIndex: 1, inset: 0 }} />
+      <Box sx={{ bgcolor: "black", opacity: "50%", width: "100%", height: !isDownSmallScreen ? "336px" : "176px", position: "absolute", zIndex: 1, inset: 0 }} />
       {/* Slider Rectangle */}
       <Image
-        style={{ marginBottom: isUpMediumScreen ? "-16.8px" : "-11px", position: "absolute", zIndex: 2, bottom: 0, left: "50%", transform: " translate(-50%, -50%)" }}
+        style={{ marginBottom: !isDownSmallScreen ? "-16.8px" : "-11px", position: "absolute", zIndex: 2, bottom: 0, left: "50%", transform: " translate(-50%, -50%)" }}
         src={"/Images/Slider/Rectangle 2.svg"}
-        width={isUpMediumScreen ? 154 : 82}
-        height={isUpMediumScreen ? 33 : 19}
+        width={!isDownSmallScreen ? 154 : 82}
+        height={!isDownSmallScreen ? 33 : 19}
         alt="rectangle-Slider"
       />
       {/* Slider Bollet */}
       <Box sx={{ margin: "-4px 0px", display: "flex", position: "absolute", zIndex: 2, bottom: 0, left: "50%", transform: " translate(-50%, -50%)" }}>
-        {imageSlider.map((bollet, slideIndex) => (
+        {imageSlider.map((_, slideIndex: number) => (
           <Box
             key={slideIndex}
             onClick={() => hangleSliderImage(slideIndex)}
@@ -120,15 +125,15 @@ const Slider: React.FC<ISliderComponentProps> = ({ sliderTitle, sliderBtnTitle }
               transition: "ease .5s",
               bgcolor: slideIndex === currentIndex ? theme.palette.primary.main : "#ADADAD",
               // transition: "ease-in-out .3s .4s",
-              width: isUpMediumScreen ? 12 : 6,
-              height: isUpMediumScreen ? 12 : 6,
-              margin: isUpMediumScreen ? "4px 4px" : "3px 2px",
+              width: !isDownSmallScreen ? 12 : 6,
+              height: !isDownSmallScreen ? 12 : 6,
+              margin: !isDownSmallScreen ? "4px 4px" : "3px 2px",
             }}
           ></Box>
         ))}
       </Box>
       {/* Nevigate Arrow */}
-      {isUpMediumScreen && (
+      {!isDownSmallScreen && (
         <>
           <ArrowIcon onClick={handleNextImage} sx={{ left: 24 }}>
             <Icon pathName="../Icons/Outline/Arrow/arrow-right-3.svg" size={"32px"} />
@@ -141,14 +146,14 @@ const Slider: React.FC<ISliderComponentProps> = ({ sliderTitle, sliderBtnTitle }
 
       {/* Slider Title */}
       <Typography
-        variant={isUpMediumScreen ? "h2" : "h6"}
+        variant={isDownSmallScreen ? "h6" : isDownLargeScreen ? "h4" : "h2"}
         color={"white"}
         sx={{ whiteSpace: "nowrap", position: "absolute", zIndex: 4, left: "50%", transform: "translate(-50%, -50%)", top: "45%" }}
       >
-        {sliderTitle.map((title, titleindex) => currentIndex === titleindex && title)}
+        {imageSlider.map((titleimageSliderObj: IImageSlider, titleindex: number) => currentIndex === titleindex && titleimageSliderObj.title)}
       </Typography>
       {/* Slider Button */}
-      <Button size="medium" variant="contained" sx={{ position: "absolute", zIndex: 4, left: "50%", transform: "translateX(-50%)", top: isUpMediumScreen ? "69%" : "61%" }}>
+      <Button size="medium" variant="contained" sx={{ position: "absolute", zIndex: 4, left: "50%", transform: "translateX(-50%)", top: !isDownSmallScreen ? "69%" : "61%" }}>
         {sliderBtnTitle}
       </Button>
     </Box>

@@ -1,43 +1,9 @@
-import typography from "@/app/Theme/typography";
-import { Box, List, ListItem, Typography, useMediaQuery, useTheme } from "@mui/material";
-import Image from "next/image";
+import { Box, List, ListItem, useMediaQuery, useTheme } from "@mui/material";
 import React from "react";
-import Icon from "../CustomIcon/Icon";
-export interface INavListItems {
-  item: string;
-  route: string;
-  children?: INavListChildren[];
-}
-interface INavListChildren {
-  item: string;
-  ChildrenRouth: string;
-}
-const navListItems: INavListItems[] = [
-  { item: "تماس با ما", route: "" },
-  { item: "درباره ما", route: "" },
-  { item: "اعطای نمایندگی", route: "" },
-  {
-    item: "منو",
-    route: "",
-    children: [
-      { item: "غذای اصلی", ChildrenRouth: "" },
-      { item: "پیش غذا", ChildrenRouth: "" },
-      { item: "دسر", ChildrenRouth: "" },
-      { item: "نوشیدنی", ChildrenRouth: "" },
-    ],
-  },
-  {
-    item: "شعبه",
-    route: "",
-    children: [
-      { item: "چالوس", ChildrenRouth: "" },
-      { item: "اکباتان", ChildrenRouth: "" },
-      { item: "اقدسیه", ChildrenRouth: "" },
-      { item: "ونک ", ChildrenRouth: "" },
-    ],
-  },
-  { item: "صفحه اصلی", route: "" },
-];
+import Icon from "../shared/CustomIcon/Icon";
+import { navListItems } from "../../../../public/static-data/navListItem";
+import { INavListItem } from "@/Interface/Interface";
+
 const DescktopNavItem = () => {
   const theme = useTheme();
   const isDownMedium = useMediaQuery("(max-width:1015px)");
@@ -52,7 +18,7 @@ const DescktopNavItem = () => {
           },
         }}
       >
-        {navListItems.map((listItem, index) => (
+        {navListItems.map((listItem: INavListItem) => (
           <ListItem key={listItem.item} sx={{ color: "green", width: "auto", display: "flex", justifyContent: "center", alignItems: "center" }}>
             {listItem.children ? (
               <Icon

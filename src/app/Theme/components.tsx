@@ -24,11 +24,11 @@ const components: Components = {
       root: { display: "flex", justifyContent: "space-between", alignItems: "center" },
     },
   },
-  MuiTextField: {
-    styleOverrides: {
-      root: { padding: "8px 16px" },
-    },
-  },
+  // MuiTextField: {
+  //   styleOverrides: {
+  //     root: { padding: "8px 16px" },
+  //   },
+  // },
   // MuiAlertTitle: {
   //   styleOverrides: {
   //     root: {
@@ -74,7 +74,7 @@ const components: Components = {
         boxShadow: "none",
       },
       sizeMedium: {
-        fontSize: "16px",
+        fontSize: "20px",
         fontWeight: 500,
         lineHeight: "28px",
         letterSpacing: "0em",
@@ -83,12 +83,15 @@ const components: Components = {
         borderRadius: "8px",
         color: "white",
         "@media (max-width:900px)": {
-          fontSize: "10px",
+          fontSize: "16px",
           fontWeight: 400,
           lineHeight: "18px",
           letterSpacing: "0em",
           padding: "8px",
           borderRadius: "4px",
+        },
+        "@media (max-width:600px)": {
+          fontSize: "10px",
         },
       },
       sizeLarge: {

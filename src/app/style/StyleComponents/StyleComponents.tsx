@@ -1,4 +1,4 @@
-import Icon from "@/app/Components/CustomIcon/Icon";
+import Icon from "@/app/Components/shared/CustomIcon/Icon";
 import { IconButton, styled } from "@mui/material";
 
 export const ArrowIcon = styled(IconButton)({

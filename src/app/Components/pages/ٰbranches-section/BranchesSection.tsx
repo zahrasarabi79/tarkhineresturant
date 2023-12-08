@@ -1,51 +1,21 @@
 "use client";
-import { Box, Grid, useTheme, Typography, useMediaQuery, Stack, Container } from "@mui/material";
+import { Box, useTheme, Typography, useMediaQuery, Stack, Container } from "@mui/material";
 import React from "react";
 import BranchCard from "./BranchCard";
-export interface IBranches {
-  desktopImage: string;
-  address: string;
-  branchName: string;
-  mobileImage: string;
-}
+import { IBranche } from "@/Interface/Interface";
+import { branches } from "../../../../../public/static-data/branches";
 
-const branches: IBranches[] = [
-  {
-    desktopImage: "/Images/branches/desktop-branches/vanak-branch.jpg",
-    mobileImage: "/Images/branches/mobile-branches/ekbatan-branch-mobile.gif",
-    address: "میدان ونک، خیابان فردوسی، نبش کوچه نیلوفر، پلاک ۲۶",
-    branchName: "شعبه ونک",
-  },
-  {
-    desktopImage: "/Images/branches/desktop-branches/aghdasieh-branch.jpg",
-    mobileImage: "/Images/branches/mobile-branches/ekbatan-branch-mobile.gif",
-    address: "خیابان اقدسیه ، نرسیده به میدان خیام،خیابان ۲۳ام،پلاک ۸",
-    branchName: "شعبه اقدسیه",
-  },
-  {
-    desktopImage: "/Images/branches/desktop-branches/chalos-branch.jpg",
-    mobileImage: "/Images/branches/mobile-branches/ekbatan-branch-mobile.gif",
-    address: "چالوس، خیابان ۱۷ شهریور، بعد کوچه کوروش، جنب داروخانه دکتر میلانی",
-    branchName: "شعبه چالوس",
-  },
-  {
-    desktopImage: "/Images/branches/desktop-branches/ekbatan-branch.png",
-    mobileImage: "/Images/branches/mobile-branches/ekbatan-branch-mobile.gif",
-    address: "شهرک اکباتان، فاز ۳، مجتمع تجاری کوروش، طبقه سوم",
-    branchName: "شعبه اکباتان",
-  },
-];
 const BranchesSection = () => {
   const theme = useTheme();
   const isDownLargeScreen = useMediaQuery(theme.breakpoints.down("lg"));
   return (
     <Container maxWidth={isDownLargeScreen ? "md" : "lg"}>
-      <Box sx={{ py: 6 }}>
+      <Box sx={{ py: isDownLargeScreen ? 3 : 6 }}>
         <Typography variant={isDownLargeScreen ? "h5" : "h4"} sx={{ textAlign: "center", mb: 3 }}>
-          ترخینه گردی
+          هومسا گردی
         </Typography>
         <Stack direction={isDownLargeScreen ? "column" : "row"} sx={{ justifyContent: "center", gap: 3 }}>
-          {branches.map((branch: IBranches) => (
+          {branches.map((branch: IBranche) => (
             <BranchCard branch={branch} />
           ))}
         </Stack>

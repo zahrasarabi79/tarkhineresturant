@@ -1,12 +1,9 @@
 "use client";
-import { Container, Grid, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Grid, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
 import Image from "next/image";
 import React, { FC } from "react";
-import { IBranches } from "./BranchesSection";
-import typography from "../../../Theme/typography";
-export interface IBranchCard {
-  branch: IBranches;
-}
+import { IBranchCard } from "@/Interface/Interface";
+
 const BranchCard: FC<IBranchCard> = ({ branch }) => {
   const theme = useTheme();
   const isDownLargeScreen = useMediaQuery(theme.breakpoints.down("lg"));
